@@ -1,8 +1,11 @@
 
 
-export const WebpackPage = ()=>{
+const WebpackPage = ()=>{
     return(
         <>
+        WebpackPage
         </>
     )
 }
+
+export default WebpackPage;

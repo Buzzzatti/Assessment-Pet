@@ -1,4 +1,2 @@
 
-import {WebpackPage} from "./WebpackPage";
-
-export { WebpackPage };
+export {default} from "./WebpackPage";

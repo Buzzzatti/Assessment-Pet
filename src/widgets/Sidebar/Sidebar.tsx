@@ -2,6 +2,7 @@ import { List,ListItem,ListItemText} from"@mui/material";
 import { NavLink } from 'react-router-dom';
 
 const menuItems = [
+    { path: '/', label: 'Pet-Project' },
     { path: '/error-boundary', label: 'Error Boundary' },
     { path: '/webpack', label: 'Webpack' },
     { path: '/vite', label: 'Vite' },
