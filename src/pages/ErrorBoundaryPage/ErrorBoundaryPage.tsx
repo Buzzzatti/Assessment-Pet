@@ -1,11 +1,11 @@
-import { Box } from "@mui/material";
+import { PageLayout } from "@/widgets";
 
 
-const ErrorBoundaryPage = () => {
+const ErrorBoundaryPage = ({ title }: { title: string }) => {
     return (
-        <Box>
-            WebpackPage
-        </Box>
+        <PageLayout title={title}>
+            <></>
+        </PageLayout>
     )
 }
 

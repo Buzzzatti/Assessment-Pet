@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
-import { Sidebar } from '@/widgets/Sidebar/Sidebar'
 import { AppRouter } from './router'
 import { ErrorBoundary } from './providers/ErrorBoundary'
+import { Sidebar } from '@/widgets'
 
 function App() {
 

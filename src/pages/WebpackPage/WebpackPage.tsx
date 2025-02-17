@@ -1,10 +1,11 @@
+import { PageLayout } from "@/widgets";
 
 
-const WebpackPage = ()=>{
-    return(
-        <>
-        WebpackPage
-        </>
+const WebpackPage = ({ title }: { title?: string }) => {
+    return (
+        <PageLayout title={title}>
+            <></>
+        </PageLayout>
     )
 }
 

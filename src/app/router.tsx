@@ -1,13 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import { InitialPage, WebpackPage } from "../pages";
-import ErrorBoundaryPage from "../pages/ErrorBoundaryPage/ErrorBoundaryPage";
+import { menuItems } from "@/features/navigation";
 
-export const AppRouter: React.FC = () => (
-    <Routes>
-        <Route path="/" element={<InitialPage />} />
-        <Route path="/error-boundary" element={<ErrorBoundaryPage />} />
-        <Route path="/error-boundary" element={<WebpackPage />} />
-        <Route path="/webpack" element={<WebpackPage />} />
-        <Route path="/vite" element={<WebpackPage />} />
-    </Routes>
-);
+
+export const AppRouter: React.FC = () => {
+
+    return (
+        <Routes>
+            {menuItems.map(({ path, page: Page, title }) => (
+                <Route
+                    key={path}
+                    path={path}
+                    element={<Page title={title} />}
+                />
+            ))}
+        </Routes>
+    );
+};

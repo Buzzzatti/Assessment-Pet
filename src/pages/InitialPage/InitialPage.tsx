@@ -1,9 +1,12 @@
+import { PageLayout } from "@/widgets";
 
 
-const InitialPage = () => {
+const InitialPage = ({ title }: { title?: string }) => {
 
     return (
-        <>InitialPage</>
+        <PageLayout title={title}>
+            <></>
+        </PageLayout>
     )
 }
 export default InitialPage;

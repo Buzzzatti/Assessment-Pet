@@ -1,0 +1,1 @@
+export { menuItems } from './model/menuItems'
