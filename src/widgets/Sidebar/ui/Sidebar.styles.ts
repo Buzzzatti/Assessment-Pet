@@ -1,7 +1,7 @@
 import { ListItem, ListItemText } from "@mui/material";
 import styled from "styled-components";
 
-export const CustomListItem = styled(ListItem)`
+export const CustomListItem = styled(ListItem) <{ isActive: boolean }>`
 
     cursor:pointer;
     border-radius: 8px;
@@ -9,6 +9,9 @@ export const CustomListItem = styled(ListItem)`
     &:hover {
         background-color: #eddbc5;
     }
+        {
+        ${(props) => props.isActive && 'background-color: #eddbc5;'}
+        }
 
     &:hover{
         div {
