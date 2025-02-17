@@ -1,10 +1,20 @@
-import { Box } from '@mui/material'
-import { AppRouter } from './router'
-import { ErrorBoundary } from './providers/ErrorBoundary'
-import { Sidebar } from '@/widgets'
+import { Box } from '@mui/material';
+import { AppRouter } from './router';
+import { Sidebar, ErrorButton } from '@/widgets';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [hasError, setHasError] = useState(false);
 
+  const throwError = () => {
+    setHasError(true);
+  };
+
+  useEffect(() => {
+    if (hasError) {
+      throw new Error('This is a simulated error!');
+    }
+  }, [hasError]);
 
   return (
     <Box display="flex">
@@ -12,12 +22,11 @@ function App() {
         <Sidebar />
       </Box>
       <Box flexGrow={1} padding="1rem">
-        <ErrorBoundary>
-          <AppRouter />
-        </ErrorBoundary>
+        <AppRouter />
+        <ErrorButton onClick={throwError} />
       </Box>
     </Box>
-  )
+  );
 }
 
-export default App
+export default App;

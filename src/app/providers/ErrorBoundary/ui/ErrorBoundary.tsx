@@ -1,40 +1,49 @@
-import { Box } from '@mui/material'
-import React, { Component, ReactNode } from 'react'
+import { Box, Button } from '@mui/material';
+import React, { Component, ErrorInfo } from 'react';
 import Error from './Error.png'
-interface ErrorBoundaryState {
-    hasError: boolean
+
+interface ErrorBoundaryProps {
+    children: React.ReactNode;
 }
 
-class ErrorBoundary extends Component<{ children: ReactNode }, ErrorBoundaryState> {
-    state: ErrorBoundaryState = {
-        hasError: false,
+interface ErrorBoundaryState {
+    hasError: boolean;
+    error: Error | null;
+    errorInfo: ErrorInfo | null;
+}
+
+export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+    constructor(props: ErrorBoundaryProps) {
+        super(props);
+        this.state = { hasError: false, error: null, errorInfo: null };
     }
 
-    static getDerivedStateFromError(): ErrorBoundaryState {
-        return { hasError: true }
+    static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+        return { hasError: true, error: error, errorInfo: null };
     }
 
-    componentDidCatch(error: Error, info: React.ErrorInfo): void {
-        console.error('Error caught by Error Boundary:', error, info)
+    componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+        this.setState({
+            errorInfo: errorInfo,
+        });
     }
 
     render() {
-        if (this.state.hasError) {
-            return <Box
-                component="img"
-                sx={{
-                    height: 233,
-                    width: 350,
-                    maxHeight: { xs: 233, md: 167 },
-                    maxWidth: { xs: 350, md: 250 },
-                }}
-                alt="The house from the offer."
-                src={Error}
-            />
-        }
+        if (this.state.hasError) return (
+            <Box>
+                <Box
+                    component="img"
+                    sx={{
+                        height: '50vh',
+                        width: '100%',
 
-        return this.props.children
+                    }}
+                    src={Error}
+                />
+                <Button href='/' >Ладно, Ладно пойдем домой </Button>
+            </Box>
+        );
+
+        return this.props.children;
     }
 }
-
-export default ErrorBoundary
