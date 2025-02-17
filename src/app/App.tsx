@@ -1,19 +1,22 @@
-import { Sidebar } from '../widgets/Sidebar/Sidebar'
 import { Box } from '@mui/material'
+import { Sidebar } from '@/widgets/Sidebar/Sidebar'
 import { AppRouter } from './router'
+import { ErrorBoundary } from './providers/ErrorBoundary'
 
 function App() {
 
 
   return (
     <Box display="flex">
-    <Box width="250px">
-      <Sidebar />
+      <Box width="250px">
+        <Sidebar />
+      </Box>
+      <Box flexGrow={1} padding="1rem">
+        <ErrorBoundary>
+          <AppRouter />
+        </ErrorBoundary>
+      </Box>
     </Box>
-    <Box flexGrow={1} padding="1rem">
-      <AppRouter />
-    </Box>
-  </Box>
   )
 }
 
