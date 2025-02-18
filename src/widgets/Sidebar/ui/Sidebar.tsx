@@ -1,11 +1,12 @@
-import { List } from "@mui/material";
 import { NavLink, useLocation } from 'react-router-dom';
-import { CustomListItem, CustomListItemText } from "./Sidebar.styles";
-import { menuItems } from "@/features/navigation";
 
+import { menuItems } from '@/features/navigation';
+
+import { List } from '@mui/material';
+
+import { CustomListItem, CustomListItemText } from './Sidebar.styles';
 
 export const Sidebar = () => {
-
   const { pathname } = useLocation();
 
   return (

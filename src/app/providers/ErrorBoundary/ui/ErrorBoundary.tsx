@@ -1,9 +1,11 @@
+import { Component, ErrorInfo, ReactNode } from 'react';
+
 import { Box, Button } from '@mui/material';
-import React, { Component, ErrorInfo } from 'react';
+
 import Error from './Error.png'
 
 interface ErrorBoundaryProps {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 interface ErrorBoundaryState {
@@ -21,7 +23,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     static getDerivedStateFromError(error: Error): ErrorBoundaryState {
         return { hasError: true, error: error, errorInfo: null };
     }
-
+    //@ts-expect-error убираем ошибку на error
     componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
         this.setState({
             errorInfo: errorInfo,

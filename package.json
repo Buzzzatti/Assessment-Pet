@@ -32,11 +32,15 @@
     "commitizen": "^4.3.1",
     "cz-customizable": "^7.4.0",
     "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.14.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
+    "prettier": "^3.5.1",
     "rollup-plugin-visualizer": "^5.14.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
@@ -44,9 +48,8 @@
     "vite-plugin-svgr": "^4.3.0"
   },
   "lint-staged": {
-  "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
   }
-
 }

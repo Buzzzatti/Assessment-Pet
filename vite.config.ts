@@ -1,8 +1,9 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { visualizer } from 'rollup-plugin-visualizer';
-import svgr from "vite-plugin-svgr";
+
 import path from "path";
+import { visualizer } from 'rollup-plugin-visualizer';
+import { defineConfig } from 'vite';
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   resolve: {
@@ -27,9 +28,20 @@ export default defineConfig({
     // Минификация
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return "vendor";
+          }
+          if (id.includes("pages")) {
+            return "pages";
+          }
+          if (id.includes("features")) {
+            return "features";
+          }
         },
+        // manualChunks: { Дефолтная
+        //   vendor: ['react', 'react-dom'],
+        // },
       },
     },
   },

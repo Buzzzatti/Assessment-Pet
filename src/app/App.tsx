@@ -1,7 +1,9 @@
+import { useEffect,useState } from 'react';
+
+import { ErrorButton,Sidebar } from '@/widgets';
 import { Box } from '@mui/material';
+
 import { AppRouter } from './router';
-import { Sidebar, ErrorButton } from '@/widgets';
-import { useState, useEffect } from 'react';
 
 function App() {
   const [hasError, setHasError] = useState(false);
