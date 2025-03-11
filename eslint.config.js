@@ -13,9 +13,8 @@ tseslint.config(
       ...tseslint.configs.recommended,
       'plugin:react/recommended',
       'plugin:@typescript-eslint/recommended',
-      'plugin:prettier/recommended',  // Подключение Prettier через рекомендованное расширение
-      'eslint:recommended',
-      'prettier' // Для отключения конфликтов с Prettier
+      'plugin:prettier/recommended',
+      'prettier'
     ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -26,7 +25,7 @@ tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       'simple-import-sort': simpleImportSort,
-      prettier: 'eslint-plugin-prettier', // Подключаем плагин Prettier для интеграции с ESLint
+      prettier: 'eslint-plugin-prettier',
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -34,6 +33,13 @@ tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "all",
+                "semi": true
+            }
+        ],
       'simple-import-sort/imports': [
         'error',
         {
@@ -46,16 +52,15 @@ tseslint.config(
         },
       ],
       'simple-import-sort/exports': 'error',
-      'max-len': [
-        'error',
+      "max-len": [
+        "error",
         {
-          code: 120,
-          comments: 120,
-          ignoreUrls: true,
-          ignoreStrings: true,
-          ignoreTemplateLiterals: true,
-          ignoreRegExpLiterals: true,
-        },
+          "code": 80,
+          "ignorePattern": "^(import|export)\\s.+",
+          "ignoreComments": true,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true
+        }
       ],
       '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
       '@typescript-eslint/no-unused-expressions': 'error',

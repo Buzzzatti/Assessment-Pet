@@ -2,24 +2,44 @@ import { ReactNode } from 'react';
 
 import { Box } from '@mui/material';
 
-import { CardSubTitle, CardTitle } from './Card.styles';
+import {
+    CardContainer,
+    CardLinkTitle,
+    CardSubTitle,
+    CardTitle,
+} from './Card.styles';
 
 interface CardProps {
     title: string;
     subtitle?: string;
     children: ReactNode;
     contentDirection?: 'column' | 'row';
+    link?: string;
+    mb?: string | number;
 }
 
-const Card = ({ title, subtitle, children, contentDirection = 'column' }: CardProps) => {
+const Card = ({
+    title,
+    subtitle,
+    children,
+    contentDirection = 'column',
+    link,
+    mb = 3,
+}: CardProps) => {
     return (
-        <Box gap={16} flexDirection="column">
+        <CardContainer gap={16} flexDirection="column" mb={mb}>
             <Box gap={12} flexDirection="column">
-                <CardTitle>{title}</CardTitle>
+                {link ? (
+                    <CardLinkTitle underline="hover" href={link}>
+                        {title}
+                    </CardLinkTitle>
+                ) : (
+                    <CardTitle>{title}</CardTitle>
+                )}
                 {subtitle && <CardSubTitle>{subtitle}</CardSubTitle>}
             </Box>
             <Box flexDirection={contentDirection}>{children}</Box>
-        </Box>
+        </CardContainer>
     );
 };
 

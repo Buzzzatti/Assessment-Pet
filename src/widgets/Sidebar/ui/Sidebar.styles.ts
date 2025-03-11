@@ -1,11 +1,14 @@
-import { ListItem, ListItemText } from "@mui/material";
+import { ListItem, ListItemText } from '@mui/material';
 
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-
-export const CustomListItem = styled(ListItem) <{ isActive: boolean }>`
+export const CustomListItem = styled(ListItem)<{ isActive: boolean }>`
     cursor: pointer;
     border-radius: 8px;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     &:hover {
         background-color: #eddbc5;
@@ -26,8 +29,5 @@ export const CustomListItem = styled(ListItem) <{ isActive: boolean }>`
 `;
 
 export const CustomListItemText = styled(ListItemText)`
-
-    color:#c9abab;
-
-
-`
+    color: #c9abab;
+`;
