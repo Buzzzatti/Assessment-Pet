@@ -4,6 +4,7 @@ import {
     WebpackPage,
     VitePage,
     FSDPage,
+    PluginsPage,
 } from '@/pages';
 
 export const menuItems = [
@@ -30,7 +31,7 @@ export const menuItems = [
         path: '/plugins',
         label: 'Плагины (минификация, чанки, react.lazy)',
         title: 'Плагины и оптимизация',
-        page: InitialPage,
+        page: PluginsPage,
     },
 
     {
