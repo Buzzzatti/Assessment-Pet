@@ -5,6 +5,10 @@ import {
     VitePage,
     FSDPage,
     PluginsPage,
+    TypeScriptPage,
+    CSSLayoutPage,
+    ReactReduxArray,
+    CalendarPage,
 } from '@/pages';
 
 export const menuItems = [
@@ -45,18 +49,24 @@ export const menuItems = [
         path: '/typescript',
         label: 'TypeScript: дженерики, utility types, интерфейсы',
         title: 'TypeScript',
-        page: InitialPage,
+        page: TypeScriptPage,
     },
     {
         path: '/css',
         label: 'Верстка: псевдоэлементы, position, transform, inherit, селекторы',
         title: 'CSS: стили и верстка',
-        page: InitialPage,
+        page: CSSLayoutPage,
     },
     {
         path: '/js-react',
         label: 'JS/React: массивы, HOC, типизация',
         title: 'JS/React',
-        page: InitialPage,
+        page: ReactReduxArray,
+    },
+    {
+        path: '/calendar',
+        label: 'Тот самый календарь',
+        title: 'Календарь',
+        page: CalendarPage,
     },
 ];

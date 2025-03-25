@@ -20,7 +20,7 @@ const InitialPage = ({ title }: { title?: string }) => {
             <Box mb={3}>Что изучается в рамках проекта: </Box>
 
             {InitialPageContent.map(({ title, content, link }, index) => (
-                <Card title={`${index + 1}. ${title}`} link={link}>
+                <Card title={`${index + 1}. ${title}`} link={link} key={index}>
                     <ul>
                         {content.map((el) => (
                             <li>{el}</li>

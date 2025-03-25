@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import { ErrorButton, Sidebar } from '@/widgets';
 import { Box } from '@mui/material';
 
-import { AppRouter } from './router';
+import AppRouter from './router';
+import { Provider } from 'react-redux';
+import { store } from '@/store/configureStore';
 
 function App() {
     const [hasError, setHasError] = useState(false);
@@ -19,15 +21,17 @@ function App() {
     }, [hasError]);
 
     return (
-        <Box display="flex">
-            <Box width="350px">
-                <Sidebar />
+        <Provider store={store}>
+            <Box display="flex">
+                <Box width="350px">
+                    <Sidebar />
+                </Box>
+                <Box flexGrow={1} padding="1rem">
+                    <AppRouter />
+                    <ErrorButton onClick={throwError} />
+                </Box>
             </Box>
-            <Box flexGrow={1} padding="1rem">
-                <AppRouter />
-                <ErrorButton onClick={throwError} />
-            </Box>
-        </Box>
+        </Provider>
     );
 }
 

@@ -1,9 +1,8 @@
-import { Route, Routes } from "react-router-dom";
-import { menuItems } from "@/features/navigation";
+import { Route, Routes } from 'react-router-dom';
+import { menuItems } from '@/features/navigation';
+import React from 'react';
 
-
-export const AppRouter: React.FC = () => {
-
+const AppRouter: React.FC = () => {
     return (
         <Routes>
             {menuItems.map(({ path, page: Page, title }) => (
@@ -16,3 +15,4 @@ export const AppRouter: React.FC = () => {
         </Routes>
     );
 };
+export default React.memo(AppRouter);
